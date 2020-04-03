@@ -1,4 +1,4 @@
-FROM centos:7
+FROM registry.access.redhat.com/ubi8/ubi:latest
 
 RUN yum -y install java-1.8.0-openjdk-headless openssl && yum -y clean all
 

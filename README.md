@@ -59,9 +59,9 @@ Producer
 * `TOPIC` - the topic the producer will send to  
 * `DELAY_MS` - the delay, in ms, between messages  
 * `MESSAGE_COUNT` - the number of messages the producer should send  
-* `CA_CRT` - the certificate of the CA which signed the brokers' TLS certificates, for adding to the client's trust store
-* `USER_CRT` - the user's certificate
-* `USER_KEY` - the user's private key
+* `KAFKA_SECRET_CA_CRT` - the certificate of the CA which signed the brokers' TLS certificates, for adding to the client's trust store
+* `KAFKAUSER_SECRET_USER_CRT` - the user's certificate
+* `KAFKAUSER_SECRET_USER_KEY` - the user's private key
 * `LOG_LEVEL` - logging level  
 
 Consumer  
@@ -69,9 +69,9 @@ Consumer
 * `TOPIC` - name of topic which consumer subscribes  
 * `GROUP_ID` - specifies the consumer group id for the consumer
 * `MESSAGE_COUNT` - the number of messages the consumer should receive
-* `CA_CRT` - the certificate of the CA which signed the brokers' TLS certificates, for adding to the client's trust store
-* `USER_CRT` - the user's certificate
-* `USER_KEY` - the user's private key
+* `KAFKA_SECRET_CA_CRT` - the certificate of the CA which signed the brokers' TLS certificates, for adding to the client's trust store
+* `KAFKAUSER_SECRET_USER_CRT` - the user's certificate
+* `KAFKAUSER_SECRET_USER_KEY` - the user's private key
 * `LOG_LEVEL` - logging level  
 
 Streams  
@@ -80,9 +80,9 @@ Streams
 * `SOURCE_TOPIC` - name of topic which will be used as the source of messages
 * `TARGET_TOPIC` - name of topic where the transformed images are sent
 * `COMMIT_INTERVAL_MS` - the interval for the Kafka Streams consumer part committing the offsets
-* `CA_CRT` - the certificate of the CA which signed the brokers' TLS certificates, for adding to the client's trust store
-* `USER_CRT` - the user's certificate
-* `USER_KEY` - the user's private key
+* `KAFKA_SECRET_CA_CRT` - the certificate of the CA which signed the brokers' TLS certificates, for adding to the client's trust store
+* `KAFKAUSER_SECRET_USER_CRT` - the user's certificate
+* `KAFKAUSER_SECRET_USER_KEY` - the user's private key
 * `LOG_LEVEL` - logging level
 
 ### Tracing

@@ -20,21 +20,21 @@ function create_keystore {
    RANDFILE=/tmp/.rnd openssl pkcs12 -export -in $3 -inkey $4 -name $HOSTNAME -password pass:$2 -out $1
 }
 
-if [ "$CA_CRT" ];
+if [ "$KAFKA_SECRET_CA_CRT" ];
 then
     echo "Preparing truststore"
     export TRUSTSTORE_PASSWORD=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c32)
-    echo "$CA_CRT" > /tmp/ca.crt
+    echo "$KAFKA_SECRET_CA_CRT" > /tmp/ca.crt
     create_truststore /tmp/truststore.p12 $TRUSTSTORE_PASSWORD /tmp/ca.crt ca
     export TRUSTSTORE_PATH=/tmp/truststore.p12
 fi
 
-if [[ "$USER_CRT" && "$USER_KEY" ]];
+if [[ "$KAFKAUSER_SECRET_USER_CRT" && "$KAFKAUSER_SECRET_USER_KEY" ]];
 then
     echo "Preparing keystore"
     export KEYSTORE_PASSWORD=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c32)
-    echo "$USER_CRT" > /tmp/user.crt
-    echo "$USER_KEY" > /tmp/user.key
+    echo "$KAFKAUSER_SECRET_USER_CRT" > /tmp/user.crt
+    echo "$KAFKAUSER_SECRET_USER_KEY" > /tmp/user.key
     create_keystore /tmp/keystore.p12 $KEYSTORE_PASSWORD /tmp/user.crt /tmp/user.key /opt/kafka/cluster-certs/cluster-ca.crt $HOSTNAME
     export KEYSTORE_PATH=/tmp/keystore.p12
 fi

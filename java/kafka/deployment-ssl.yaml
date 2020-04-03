@@ -38,7 +38,7 @@ spec:
       - name: hello-world-producer
         image: strimzi/hello-world-producer:latest
         env:
-          - name: CA_CRT
+          - name: KAFKA_SECRET_CA_CRT
             valueFrom:
               secretKeyRef:
                 name: my-cluster-cluster-ca-cert
@@ -74,7 +74,7 @@ spec:
         - name: hello-world-streams
           image: strimzi/hello-world-streams:latest
           env:
-            - name: CA_CRT
+            - name: KAFKA_SECRET_CA_CRT
               valueFrom:
                 secretKeyRef:
                   name: my-cluster-cluster-ca-cert
@@ -110,7 +110,7 @@ spec:
       - name: hello-world-consumer
         image: strimzi/hello-world-consumer:latest
         env:
-          - name: CA_CRT
+          - name: KAFKA_SECRET_CA_CRT
             valueFrom:
               secretKeyRef:
                 name: my-cluster-cluster-ca-cert

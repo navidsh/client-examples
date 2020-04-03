@@ -63,17 +63,17 @@ spec:
       - name: hello-world-producer
         image: strimzi/hello-world-producer:latest
         env:
-          - name: CA_CRT
+          - name: KAFKA_SECRET_CA_CRT
             valueFrom:
               secretKeyRef:
                 name: my-cluster-cluster-ca-cert
                 key: ca.crt
-          - name: USER_CRT
+          - name: KAFKAUSER_SECRET_USER_CRT
             valueFrom:
               secretKeyRef:
                 name: hello-world-producer
                 key: user.crt
-          - name: USER_KEY
+          - name: KAFKAUSER_SECRET_USER_KEY
             valueFrom:
               secretKeyRef:
                 name: hello-world-producer
@@ -147,17 +147,17 @@ spec:
         - name: hello-world-streams
           image: strimzi/hello-world-streams:latest
           env:
-            - name: CA_CRT
+            - name: KAFKA_SECRET_CA_CRT
               valueFrom:
                 secretKeyRef:
                   name: my-cluster-cluster-ca-cert
                   key: ca.crt
-            - name: USER_CRT
+            - name: KAFKAUSER_SECRET_USER_CRT
               valueFrom:
                 secretKeyRef:
                   name: hello-world-streams
                   key: user.crt
-            - name: USER_KEY
+            - name: KAFKAUSER_SECRET_USER_KEY
               valueFrom:
                 secretKeyRef:
                   name: hello-world-streams
@@ -218,17 +218,17 @@ spec:
       - name: hello-world-consumer
         image: strimzi/hello-world-consumer:latest
         env:
-          - name: CA_CRT
+          - name: KAFKA_SECRET_CA_CRT
             valueFrom:
               secretKeyRef:
                 name: my-cluster-cluster-ca-cert
                 key: ca.crt
-          - name: USER_CRT
+          - name: KAFKAUSER_SECRET_USER_CRT
             valueFrom:
               secretKeyRef:
                 name: hello-world-consumer
                 key: user.crt
-          - name: USER_KEY
+          - name: KAFKAUSER_SECRET_USER_KEY
             valueFrom:
               secretKeyRef:
                 name: hello-world-consumer
